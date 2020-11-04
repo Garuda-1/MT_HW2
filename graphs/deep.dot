@@ -1,0 +1,67 @@
+graph ""
+	{
+	label="var x: Array<Array<Array<Array<Int>>>>;"
+
+	n000 ;
+	n000 [label="S"] ;
+	n000 -- n001 ;
+	n000 -- n002 ;
+	n001 [label="var"] ;
+	n002 [label="SS"] ;
+	n002 -- n003 ;
+	n002 -- n004 ;
+	n002 -- n005 ;
+	n002 -- n006 ;
+	n002 -- n007 ;
+	n003 [label="x"] ;
+	n004 [label=":"] ;
+	n005 [label="Array"] ;
+	n006 [label="SSS"] ;
+	n006 -- n008 ;
+	n006 -- n009 ;
+	n006 -- n010 ;
+	n007 [label=";"] ;
+	n008 [label="<"] ;
+	n009 [label="G"] ;
+	n009 -- n011 ;
+	n009 -- n012 ;
+	n010 [label=">"] ;
+	n011 [label="Array"] ;
+	n012 [label="GG"] ;
+	n012 -- n013 ;
+	n012 -- n014 ;
+	n012 -- n015 ;
+	n012 -- n016 ;
+	n013 [label="<"] ;
+	n014 [label="G"] ;
+	n014 -- n017 ;
+	n014 -- n018 ;
+	n015 [label="GGG"] ;
+	n016 [label=">"] ;
+	n017 [label="Array"] ;
+	n018 [label="GG"] ;
+	n018 -- n019 ;
+	n018 -- n020 ;
+	n018 -- n021 ;
+	n018 -- n022 ;
+	n019 [label="<"] ;
+	n020 [label="G"] ;
+	n020 -- n023 ;
+	n020 -- n024 ;
+	n021 [label="GGG"] ;
+	n022 [label=">"] ;
+	n023 [label="Array"] ;
+	n024 [label="GG"] ;
+	n024 -- n025 ;
+	n024 -- n026 ;
+	n024 -- n027 ;
+	n024 -- n028 ;
+	n025 [label="<"] ;
+	n026 [label="G"] ;
+	n026 -- n029 ;
+	n026 -- n030 ;
+	n027 [label="GGG"] ;
+	n028 [label=">"] ;
+	n029 [label="Int"] ;
+	n030 [label="GG"] ;
+	}
