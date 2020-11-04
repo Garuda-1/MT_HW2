@@ -1,0 +1,9 @@
+public enum Token {
+    ALPHA_OR_UNDERSCORE,
+    DIGIT,
+    COLON,
+    SEMICOLON,
+    LEFT_ANGLE_BRACKET,
+    RIGHT_ANGLE_BRACKET,
+    END
+}
