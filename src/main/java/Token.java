@@ -3,6 +3,7 @@ public enum Token {
     DIGIT,
     COLON,
     SEMICOLON,
+    COMMA,
     LEFT_ANGLE_BRACKET,
     RIGHT_ANGLE_BRACKET,
     END

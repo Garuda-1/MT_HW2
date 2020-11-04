@@ -104,14 +104,33 @@ public class Parser {
             case LEFT_ANGLE_BRACKET: {
                 lex.nextToken();
                 final Tree gSubTree = G();
+                final Tree gggSubTree = GGG();
                 if (lex.getCurToken() != Token.RIGHT_ANGLE_BRACKET) {
                     throw new ParseException(lex);
                 }
                 lex.nextToken();
-                return new Tree("GG", new Tree("<"), gSubTree, new Tree(">"));
+                return new Tree("GG", new Tree("<"), gSubTree, gggSubTree, new Tree(">"));
             }
+            case COMMA:
             case RIGHT_ANGLE_BRACKET: {
                 return new Tree("GG");
+            }
+            default: {
+                throw new ParseException(lex);
+            }
+        }
+    }
+
+    private Tree GGG() throws ParseException {
+        switch (lex.getCurToken()) {
+            case COMMA: {
+                lex.nextToken();
+                final Tree gSubTree = G();
+                final Tree gggSubTree = GGG();
+                return new Tree("GGG", new Tree(","), gSubTree, gggSubTree);
+            }
+            case RIGHT_ANGLE_BRACKET: {
+                return new Tree("GGG");
             }
             default: {
                 throw new ParseException(lex);

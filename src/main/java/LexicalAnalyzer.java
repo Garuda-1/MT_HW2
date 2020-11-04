@@ -38,6 +38,8 @@ public class LexicalAnalyzer {
             curToken = Token.COLON;
         } else if (curChar == ';') {
             curToken = Token.SEMICOLON;
+        } else if (curChar == ',') {
+            curToken = Token.COMMA;
         } else if (curChar == '<') {
             curToken = Token.LEFT_ANGLE_BRACKET;
         } else if (curChar == '>') {
