@@ -1,0 +1,31 @@
+graph ""
+	{
+	label="var x: Array<Int>;"
+
+	n000 ;
+	n000 [label="S"] ;
+	n000 -- n001 ;
+	n000 -- n002 ;
+	n001 [label="var"] ;
+	n002 [label="SS"] ;
+	n002 -- n003 ;
+	n002 -- n004 ;
+	n002 -- n005 ;
+	n002 -- n006 ;
+	n002 -- n007 ;
+	n003 [label="x"] ;
+	n004 [label=":"] ;
+	n005 [label="Array"] ;
+	n006 [label="SSS"] ;
+	n006 -- n008 ;
+	n006 -- n009 ;
+	n006 -- n010 ;
+	n007 [label=";"] ;
+	n008 [label="<"] ;
+	n009 [label="G"] ;
+	n009 -- n011 ;
+	n009 -- n012 ;
+	n010 [label=">"] ;
+	n011 [label="Int"] ;
+	n012 [label="GG"] ;
+	}
