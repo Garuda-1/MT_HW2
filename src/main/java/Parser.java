@@ -53,12 +53,21 @@ public class Parser {
             }
             lex.nextToken();
             final Tree aSubTree = A();
-            final Tree sssSubTree = SSS();
+            if (lex.getCurToken() != Token.LEFT_ANGLE_BRACKET) {
+                throw new ParseException(lex);
+            }
+            lex.nextToken();
+            final Tree gSubTree = G();
+            if (lex.getCurToken() != Token.RIGHT_ANGLE_BRACKET) {
+                throw new ParseException(lex);
+            }
+            lex.nextToken();
             if (lex.getCurToken() != Token.SEMICOLON) {
                 throw new ParseException(lex);
             }
             lex.nextToken();
-            return new Tree("SS", iSubTree, new Tree(":"), aSubTree, sssSubTree, new Tree(";"));
+            return new Tree("SS", iSubTree, new Tree(":"), aSubTree, new Tree("<"), gSubTree,
+                            new Tree(">"), new Tree(";"));
         } else {
             throw new ParseException(lex);
         }
@@ -73,20 +82,6 @@ public class Parser {
         final String keyword = "Array";
         readKeyword(keyword);
         return new Tree(keyword);
-    }
-
-    private Tree SSS() throws ParseException {
-        if (lex.getCurToken() == Token.LEFT_ANGLE_BRACKET) {
-            lex.nextToken();
-            final Tree gSubTree = G();
-            if (lex.getCurToken() != Token.RIGHT_ANGLE_BRACKET) {
-                throw new ParseException(lex);
-            }
-            lex.nextToken();
-            return new Tree("SSS", new Tree("<"), gSubTree, new Tree(">"));
-        } else {
-            throw new ParseException(lex);
-        }
     }
 
     private Tree G() throws ParseException {
