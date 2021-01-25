@@ -1,6 +1,6 @@
 graph ""
 	{
-	label="var x: Array<Int>;"
+	label="var variable: Array<Int>;"
 
 	n000 ;
 	n000 [label="START"] ;
@@ -19,7 +19,7 @@ graph ""
 	n004 -- n009 ;
 	n004 -- n010 ;
 	n004 -- n011 ;
-	n005 [label="x"] ;
+	n005 [label="variable"] ;
 	n006 [label=":"] ;
 	n007 [label="Array"] ;
 	n008 [label="<"] ;

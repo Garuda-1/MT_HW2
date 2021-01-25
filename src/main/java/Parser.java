@@ -30,6 +30,31 @@ public class Parser {
         return identifier.toString();
     }
 
+    private Tree START() throws ParseException {
+        if (lex.getCurToken() == Token.ALPHA_OR_UNDERSCORE) {
+            final Tree sSubTree = S();
+            final Tree contSubTree = CONT();
+            return new Tree("START", sSubTree, contSubTree);
+        }
+        throw new ParseException(lex);
+    }
+
+    private Tree CONT() throws ParseException {
+        switch (lex.getCurToken()) {
+            case ALPHA_OR_UNDERSCORE: {
+                final Tree sSubTree = S();
+                final Tree contSubTree = CONT();
+                return new Tree("CONT", sSubTree, contSubTree);
+            }
+            case END: {
+                return new Tree("CONT");
+            }
+            default: {
+                throw new ParseException(lex);
+            }
+        }
+    }
+
     private Tree S() throws ParseException {
         if (lex.getCurToken() == Token.ALPHA_OR_UNDERSCORE) {
             final Tree vSubTree = V();
@@ -136,6 +161,6 @@ public class Parser {
     Tree parse(InputStream is) throws ParseException {
         lex = new LexicalAnalyzer(is);
         lex.nextToken();
-        return S();
+        return START();
     }
 }
